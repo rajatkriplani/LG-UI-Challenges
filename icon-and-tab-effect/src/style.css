@@ -1,0 +1,129 @@
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.nav-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  perspective: 600px;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center; animations */
+  perspective: 600px;
+}
+
+.underline {
+  position: absolute;
+  bottom: -10px;   
+  left: 0;
+  width: 64px;
+  height: 4px;
+  background-color: black;
+  transition: left 0.5s ease-in-out;
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+@keyframes elasticSlide {
+  0% {
+    transform: scaleX(1);
+  }
+  15% {
+    transform: scaleX(1.20);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  85% {
+    transform: scaleX(0.80);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.home-icon:hover .roof {
+  animation: roofDrop3D 0.8s ease-in-out;
+  transform-origin: 50% 100%;
+}
+
+@keyframes roofDrop3D {
+  0% {
+    transform: rotate3d(1, 0, 0, 0deg) translateY(0);
+  }
+  20% {
+    transform: rotate3d(1, 0, 0, -20deg) translateY(-10px);
+  }
+  40% {
+    transform: rotate3d(1, 0, 0, 20deg) translateY(0);
+  }
+  60% {
+    transform: rotate3d(1, 0, 0, -10deg) translateY(-5px);
+  }
+  80% {
+    transform: rotate3d(1, 0, 0, 5deg) translateY(0);
+  }
+  100% {
+    transform: rotate3d(1, 0, 0, 0deg) translateY(0);
+  }
+}
+
+.home-icon:hover ~ .underline {
+  left: 0;
+  animation: elasticSlide 0.5s ease-in-out forwards;
+  transform-origin: left center;
+}
+
+.bell-icon:hover svg {
+  animation: ring3D 0.6s ease-in-out;
+  transform-origin: 50% 50%;
+}
+
+@keyframes ring3D {
+  0%   { transform: rotate3d(0,1,0,0deg); }
+  20%  { transform: rotate3d(0,1,0,25deg); }
+  40%  { transform: rotate3d(0,1,0,-20deg); }
+  60%  { transform: rotate3d(0,1,0,20deg); }
+  80%  { transform: rotate3d(0,1,0,-10deg); }
+  100% { transform: rotate3d(0,1,0,0deg); }
+}
+
+.bell-icon:hover ~ .underline {
+  left: 84px;
+  animation: elasticSlide 0.5s ease-in-out forwards;
+  transform-origin: left center; 
+}
+
+.user-icon:hover .head {
+  animation: spinHead3D 1s linear;
+  transform-origin: 32px 20px;
+}
+
+@keyframes spinHead3D {
+  0%   { transform: rotate3d(0,1,0,0deg); }
+  100% { transform: rotate3d(0,1,0,360deg); }
+}
+
+.user-icon:hover ~ .underline {
+  
+  left: 168px;
+  animation: elasticSlide 0.5s ease-in-out forwards;
+  transform-origin: left center;
+}
+
+.nav-container:not(:hover) .underline {
+  left: 0;              
+  transform: scaleX(1); 
+  animation: none;      
+}
