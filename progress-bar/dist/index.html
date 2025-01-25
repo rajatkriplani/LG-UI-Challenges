@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Bar</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body>
+  <h1>Interactive Math Progress Bar</h1>
+  <div class="question-container" id="questionContainer">
+    <div class="question" id="questionText">What is 2 + 3?</div>
+    <input type="number" class="answer-input" id="answerInput" placeholder="Your answer" />
+    <button class="check-button" id="checkButton">Check Answer</button>
+    <div class="feedback" id="feedback"></div>
+  </div>
+  <div class="progress-container">
+    <div class="progress-background"></div>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="progress-step active" data-step="+"></div>
+    <div class="progress-step" data-step="−"></div>
+    <div class="progress-step" data-step="×"></div>
+    <div class="progress-step" data-step="÷"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
