@@ -4,28 +4,26 @@
     <Placemark>
       <name>House</name>
       <description>My House</description>
-      
-      <!-- Camera viewpoint settings -->
+
       <LookAt>
         <longitude>74.641934</longitude>
         <latitude>25.328463</latitude>
         <altitude>458</altitude>
-        <altitudeMode>absolute</altitudeMode> <!-- Use "relativeToGround" if altitude is offset from ground -->
-        <heading>0</heading> <!-- 0 = North, 90 = East, etc. -->
-        <tilt>45</tilt> <!-- Angle between 0 (top-down) and 90 (horizontal) -->
-        <range>100</range> <!-- Distance from camera to the point (meters) -->
+        <altitudeMode>absolute</altitudeMode> 
+        <heading>0</heading> 
+        <tilt>45</tilt> 
+        <range>100</range>
       </LookAt>
 
-      <!-- 3D Model placement -->
       <Model>
-        <altitudeMode>absolute</altitudeMode> <!-- Altitude is above sea level -->
+        <altitudeMode>absolute</altitudeMode>
         <Location>
           <longitude>74.641934</longitude>
           <latitude>25.328463</latitude>
-          <altitude>450</altitude> <!-- Elevation of the model -->
+          <altitude>450</altitude>
         </Location>
         <Orientation>
-          <heading>0</heading> <!-- Adjust rotation if needed -->
+          <heading>0</heading>
           <tilt>0</tilt>
           <roll>0</roll>
         </Orientation>
@@ -35,7 +33,7 @@
           <z>1</z>
         </Scale>
         <Link>
-          <href>C:\Users\DESKTOP\Downloads\house.dae</href>
+          <href>https://raw.githubusercontent.com/rajatkriplani/LG-UI-Challenges/refs/heads/main/assets/house.dae</href>
         </Link>
       </Model>
     </Placemark>
