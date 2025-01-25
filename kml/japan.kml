@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Japan Multi-Layer Night Lights (Cities-Based Bounding Box)</name>
+
+    <!-- High-Intensity Lights Layer -->
+    <GroundOverlay>
+      <name>High-Intensity Lights</name>
+      <!-- 'CCFFFFFF' = 80% opacity (white) -->
+      <color>CCFFFFFF</color>
+      <Icon>
+        <href>https://github.com/rajatkriplani/LG-UI-Challenges/blob/main/assets/japan_night_lights_high.png?raw=true</href>
+      </Icon>
+      <LatLonBox>
+        <north>46.0</north>
+        <south>30.0</south>
+        <east>146.0</east>
+        <west>128.0</west>
+      </LatLonBox>
+    </GroundOverlay>
+
+    <!-- Medium-Intensity Lights Layer -->
+    <GroundOverlay>
+      <name>Medium-Intensity Lights</name>
+      <!-- ~53% opacity -->
+      <color>88FFFFFF</color>
+      <Icon>
+        <href>https://github.com/rajatkriplani/LG-UI-Challenges/blob/main/assets/japan_night_lights_medium.png?raw=true</href>
+      </Icon>
+      <LatLonBox>
+        <north>45.5</north>   <!-- Northern tip of Hokkaido -->
+        <south>24.0</south>   <!-- Southern islands of Okinawa -->
+        <east>143.0</east>    <!-- Eastern edge of main islands -->
+        <west>122.0</west>
+      </LatLonBox>
+    </GroundOverlay>
+    
+    <!-- Low-Intensity Lights Layer -->
+    <GroundOverlay>
+      <name>Low-Intensity Lights</name>
+      <!-- ~26% opacity -->
+      <color>44FFFFFF</color>
+      <Icon>
+        <href>https://github.com/rajatkriplani/LG-UI-Challenges/blob/main/assets/japan_night_lights_low.png?raw=true</href>
+      </Icon>
+      <LatLonBox>
+        <north>46.0</north>
+        <south>30.0</south>
+        <east>146.0</east>
+        <west>128.0</west>
+      </LatLonBox>
+    </GroundOverlay>
+
+  </Document>
+</kml>
