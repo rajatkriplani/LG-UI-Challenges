@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <Placemark>
+      <name>House</name>
+      <description>My House</description>
+      
+      <!-- Camera viewpoint settings -->
+      <LookAt>
+        <longitude>74.641934</longitude>
+        <latitude>25.328463</latitude>
+        <altitude>458</altitude>
+        <altitudeMode>absolute</altitudeMode> <!-- Use "relativeToGround" if altitude is offset from ground -->
+        <heading>0</heading> <!-- 0 = North, 90 = East, etc. -->
+        <tilt>45</tilt> <!-- Angle between 0 (top-down) and 90 (horizontal) -->
+        <range>100</range> <!-- Distance from camera to the point (meters) -->
+      </LookAt>
+
+      <!-- 3D Model placement -->
+      <Model>
+        <altitudeMode>absolute</altitudeMode> <!-- Altitude is above sea level -->
+        <Location>
+          <longitude>74.641934</longitude>
+          <latitude>25.328463</latitude>
+          <altitude>450</altitude> <!-- Elevation of the model -->
+        </Location>
+        <Orientation>
+          <heading>0</heading> <!-- Adjust rotation if needed -->
+          <tilt>0</tilt>
+          <roll>0</roll>
+        </Orientation>
+        <Scale>
+          <x>1</x>
+          <y>1</y>
+          <z>1</z>
+        </Scale>
+        <Link>
+          <href>C:\Users\DESKTOP\Downloads\house.dae</href>
+        </Link>
+      </Model>
+    </Placemark>
+  </Document>
+</kml>
