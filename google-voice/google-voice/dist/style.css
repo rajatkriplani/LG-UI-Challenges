@@ -56,47 +56,71 @@ body {
   text-align: center;
 }
 
-.micIcon {
-  --mic-size: 60px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--mic-size);
-  height: var(--mic-size);
-  border: none;
+.rotatingCircle {
+  --circle-size: 60px;
+  width: var(--circle-size);
+  height: var(--circle-size);
   border-radius: 50%;
-  cursor: pointer;
-  position: relative;
-  outline: none;
-  
   background: conic-gradient(
     var(--md-sys-color-google-blue) 0 var(--gradBlueRed),
     var(--md-sys-color-google-red) var(--gradRedBlue) var(--gradRedYellow),
     var(--md-sys-color-google-yellow) var(--gradYellowRed) var(--gradYellowGreen),
     var(--md-sys-color-google-green) var(--gradGreenYellow) 100%
   );
-  color: #fff;
-  font-size: 0;
+  position: relative;
+  margin: 0 auto;
+
+  animation: voice 2s ease infinite alternate paused, rotateCircle 5s linear infinite paused;
+  
+  transition:
+    --gradBlueRed 0.5s, --gradRedBlue 0.5s, 
+    --gradRedYellow 0.5s, --gradYellowRed 0.5s, 
+    --gradYellowGreen 0.5s, --gradGreenYellow 0.5s;
 }
 
-.micIcon {
-  animation: voice 2s ease infinite alternate paused, micRotate 5s linear infinite paused;
-}
-
-@keyframes micRotate {
-  0% {
+@keyframes rotateCircle {
+  from {
     transform: rotate(0deg);
   }
-  100% {
+  to {
     transform: rotate(360deg);
   }
 }
 
+.micButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  z-index: 1;
+}
+
+.micButton svg {
+  width: 60%;
+  height: 60%;
+  color: #fff;
+  /* Ensure it doesn't rotate */
+  transform: rotate(0deg);
+}
+
 .googleVoice {
   position: absolute;
-  inset-inline-start: 50%;
-  inset-block-start: 80px;
-  translate: -50% 0;
+  top: 100%;
+  left: 50%;
+
+  margin-top: 20px;
+  transform: translateX(-50%);
 }
 
 .googleVoice .rect {
@@ -191,10 +215,11 @@ body {
     --gradGreenYellow: 100%;
   }
 }
-.googleVoiceContainer.active .micIcon {
-  animation-play-state: running;
+
+.googleVoiceContainer.active .rotatingCircle {
+  animation: voice 2s ease infinite alternate running, rotateCircle 5s linear infinite running;
 }
 
 .googleVoiceContainer.active .rect {
-  animation-play-state: running;
+  animation: voice 2s ease infinite alternate running;
 }
