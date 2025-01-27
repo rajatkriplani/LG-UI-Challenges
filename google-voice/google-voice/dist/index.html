@@ -7,31 +7,32 @@
 
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<body>
+
   <div class="googleVoiceContainer">
-    <button class="micIcon" type="button" aria-label="Activate voice input">
+    <div class="rotatingCircle"></div>
+
+    <button class="micButton" type="button" aria-label="Activate voice input">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 
                  1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 
                  3.07 2.13 5.64 5 6.32V19h4v-1.68c2.87-.68 5-3.25 5-6.32h-2z"/>
       </svg>
     </button>
+
     <div class="googleVoice">
       <div class="rect blur"></div>
       <div class="rect"></div>
     </div>
   </div>
+
   <script>
-    const micIcon = document.querySelector('.micIcon');
+    const micButton = document.querySelector('.micButton');
     const container = document.querySelector('.googleVoiceContainer');
 
-    micIcon.addEventListener('click', () => {
+    micButton.addEventListener('click', () => {
       container.classList.toggle('active');
     });
   </script>
-</body>
-<!-- partial -->
-  
+
 </body>
 </html>
