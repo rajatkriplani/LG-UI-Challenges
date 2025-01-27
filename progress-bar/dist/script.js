@@ -1,62 +1,45 @@
-const questions = [
-  { question: "What is 2 + 3?", answer: 5 },
-  { question: "What is 7 - 4?", answer: 3 },
-  { question: "What is 3 × 4?", answer: 12 },
-  { question: "What is 16 ÷ 4?", answer: 4 },
-];
+const progressBar = document.getElementById('progressBar');
+const progressSteps = document.querySelectorAll('.progress-step');
+const prevButton = document.getElementById('prevButton');
+const nextButton = document.getElementById('nextButton');
 
-let currentQuestionIndex = 0;
+let currentStep = 1;
+const totalSteps = progressSteps.length;
 
-const questionText = document.getElementById("questionText");
-const answerInput = document.getElementById("answerInput");
-const feedback = document.getElementById("feedback");
-const checkButton = document.getElementById("checkButton");
-const progressBar = document.getElementById("progressBar");
-const questionContainer = document.getElementById("questionContainer");
-const progressSteps = document.querySelectorAll(".progress-step");
+function updateProgressBar() {
+  const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+  progressBar.style.width = `${progressPercentage}%`;
 
-function displayQuestion() {
-  if (currentQuestionIndex >= questions.length) {
-    questionContainer.innerHTML = "<h2>All done! You've finished all problems.</h2>";
-    questionContainer.classList.add("hidden");
-    return;
+  progressSteps.forEach((step, index) => {
+    if (index < currentStep) {
+      step.classList.add('completed');
+      step.classList.remove('active');
+    } else {
+      step.classList.remove('completed', 'active');
+    }
+  });
+
+  if (currentStep > 0) {
+    progressSteps[currentStep - 1].classList.add('active');
   }
 
-  questionText.textContent = questions[currentQuestionIndex].question;
-  answerInput.value = "";
-  feedback.textContent = "";
-  answerInput.focus();
-
-  progressSteps.forEach(step => step.classList.remove("active"));
-  if (progressSteps[currentQuestionIndex]) {
-    progressSteps[currentQuestionIndex].classList.add("active");
-  }
+  prevButton.disabled = currentStep === 1;
+  nextButton.disabled = currentStep === totalSteps;
 }
 
-function checkAnswer() {
-  const userAnswer = parseInt(answerInput.value, 10);
-  const correctAnswer = questions[currentQuestionIndex].answer;
-
-  if (userAnswer === correctAnswer) {
-    feedback.style.color = "green";
-    feedback.textContent = "Correct!";
-    progressSteps[currentQuestionIndex].classList.remove("active");
-    progressSteps[currentQuestionIndex].classList.add("completed");
-
-    const progressPercent = ((currentQuestionIndex + 1) / questions.length) * 100;
-    progressBar.style.width = progressPercent + "%";
-    currentQuestionIndex++;
-
-    setTimeout(displayQuestion, 800);
-  } else {
-    feedback.style.color = "#d32f2f";
-    feedback.textContent = "Incorrect, try again!";
-    answerInput.value = "";
-    answerInput.focus();
+nextButton.addEventListener('click', () => {
+  if (currentStep < totalSteps) {
+    currentStep++;
+    updateProgressBar();
+    playLevelUpSound();
   }
-}
+});
 
-checkButton.addEventListener("click", checkAnswer);
-window.onload = function() {
-  displayQuestion();
-};
+prevButton.addEventListener('click', () => {
+  if (currentStep > 1) {
+    currentStep--;
+    updateProgressBar();
+  }
+});
+
+updateProgressBar();
